@@ -43,3 +43,5 @@ build/
 
 # Streamlit
 .streamlit/secrets.toml
+data/raw/vehicles.csv
+data/raw/vehicles.csv.zip
