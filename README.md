@@ -418,30 +418,32 @@ Reach out to Abishek on Slack if you have any questions or get stuck!
 
 ---
 
-## Your Project Details (Update This Section!)
+## Your Project Details
 
-> **Important:** This section is the first thing visitors see when they land on your GitHub repo. This is your portfolio—make it professional and complete! Update this before your final submission.
+**Student Name:** Kalpana Selva
 
-**Student Name:** [Your Name]
+**Dataset:** [Concrete Compressive Strength Data Set — UCI ML Repository](https://www.kaggle.com/datasets/elikplim/concrete-compressive-strength-data-set) (1,030 samples, 8 features)
 
-**Dataset:** [Dataset name and source - include a link if from Kaggle]
+**Problem Statement:** Predict the compressive strength (MPa) of concrete mixtures based on ingredient proportions and curing age. Accurate strength prediction reduces costly physical lab testing and enables engineers to optimise mix designs before production.
 
-**Problem Statement:** [What are you trying to predict and why? Write 2-3 sentences explaining the value of this prediction.]
+**Target Variable:** `concrete_compressive_strength` (MPa)
 
-**Target Variable:** [Column name - e.g., "price" or "salary"]
+**Selected Features (6 engineered from 8 raw inputs):**
+- `log_age` — log-transformed curing age (days)
+- `water_binder_ratio` — water / total binder content
+- `total_binder` — cement + blast furnace slag + fly ash (kg/m³)
+- `cement_ratio` — cement / total binder
+- `aggregate_binder_ratio` — total aggregate / total binder
+- `superplasticizer` — superplasticizer content (kg/m³)
 
-**Selected Features:** [List the 4-8 features your final model uses]
+**Best Regression Model:** Gradient Boosting Regressor (Test R² = 0.8727, RMSE = 6.05 MPa, MAE = 4.23 MPa)
 
-**Best Regression Model:** [Model type and key metric - e.g., "Random Forest (R² = 0.82)"]
+**Best Classification Model:** Gradient Boosting Classifier — Low / Medium / High strength categories (Test Accuracy = 89.67%, F1 = 0.8967)
 
-**Best Classification Model:** [Model type and key metric - e.g., "Gradient Boosting (Accuracy = 85%)"]
-
-**Deployed App URL:** [Add your Streamlit Cloud URL once deployed]
+**Deployed App URL:** https://concrete-compressive-strength-mlpredictor.streamlit.app
 
 ### Project Highlights
 
-[Write 2-3 bullet points about interesting findings or challenges you overcame. This helps employers understand your thought process!]
-
--
--
--
+- **Feature engineering drove performance:** Raw ingredient quantities were transformed into domain-meaningful ratios (water-binder ratio, cement ratio, aggregate-binder ratio) and a log-transformed age feature. These 6 engineered features outperformed models trained on all 8 raw inputs.
+- **Log-age was the single most important predictor:** Concrete strength follows a logarithmic growth curve with curing time — capturing this non-linearity with `log_age` significantly improved regression accuracy.
+- **Quantile-based binning for classification:** Strength categories (Low / Medium / High) were defined using the 25th and 75th percentiles of the training set (< 22.44 MPa / 22.44–44.29 MPa / ≥ 44.29 MPa), ensuring balanced classes and meaningful engineering thresholds.
