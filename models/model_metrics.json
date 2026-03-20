@@ -1,0 +1,15 @@
+{
+  "regression": {
+    "test_r2": 0.8727,
+    "test_rmse": 6.05,
+    "test_mae": 4.23,
+    "cv_r2_mean": 0.9090,
+    "cv_r2_std": 0.0457
+  },
+  "classification": {
+    "test_accuracy": 0.8967,
+    "test_f1_weighted": 0.8967,
+    "cv_accuracy_mean": 0.8599,
+    "cv_accuracy_std": 0.0575
+  }
+}

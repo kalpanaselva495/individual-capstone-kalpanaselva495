@@ -1,0 +1,15 @@
+# Development dependencies for running notebooks locally.
+# Install with: pip install -r requirements-dev.txt
+#
+# Note: requirements.txt covers the app (Streamlit Cloud).
+#       This file adds the extra tools needed for local notebook development.
+
+-r requirements.txt
+
+# Jupyter
+notebook>=7.0.0
+ipykernel>=7.0.0
+
+# Visualisation (notebooks only)
+matplotlib>=3.6.0
+seaborn>=0.12.0
